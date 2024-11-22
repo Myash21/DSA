@@ -50,6 +50,23 @@ void insertEnd(Node* head, int v){
     temp->next = node;
 }
 
+
+Node* insertk(Node* head, int k, int v){
+    Node* temp = head;
+    int cnt = 0;
+    Node* node = new Node(v, nullptr);
+    if(k==1) return insertStart(temp, v);
+    while(temp!=nullptr){
+        cnt++;
+        temp = temp->next;
+        if(cnt==k-2) break;
+        return head;
+    }
+    node->next = temp->next;
+    temp->next = node;
+    return head;
+}
+
 void displayLL(Node* head){
     Node* temp = head;
     while(temp!=nullptr){
@@ -66,6 +83,7 @@ int main()
     cout<<endl;
     head = insertStart(head, 10);
     insertEnd(head, 11);
+    insertk(head, 3, 12);
     displayLL(head);
     return 0;
 }
