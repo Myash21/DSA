@@ -35,10 +35,19 @@ int LengthofLL(Node* head){
 }
 
 Node* insertStart(Node* head, int v){
-    Node* temp = head;
     Node* node = new Node(v, nullptr);
     node->next = head;
     return node;
+}
+
+void insertEnd(Node* head, int v){
+    Node* temp = head;
+    Node* node = new Node(v, nullptr);
+    while(temp->next!=nullptr){
+        temp = temp->next;
+    }
+    node->next = temp->next;
+    temp->next = node;
 }
 
 void displayLL(Node* head){
@@ -56,6 +65,7 @@ int main()
     displayLL(head);
     cout<<endl;
     head = insertStart(head, 10);
+    insertEnd(head, 11);
     displayLL(head);
     return 0;
 }
