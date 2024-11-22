@@ -34,6 +34,17 @@ int lengthofLL(Node* head){
     return l;
 }
 
+void findMiddle(Node* head){
+    int l = lengthofLL(head);
+    Node* temp = head;
+    int cnt = (l/2) + 1;
+    while(cnt > 1){
+        temp = temp->next;
+        cnt--;
+    }
+    cout<<temp->data;
+}
+
 bool checkifPresent(Node* head, int val){
     Node* temp = head;
     while(temp != nullptr){
@@ -53,15 +64,10 @@ void displayLL(Node* head){
 
 int main()
 {
-    vector<int> arr = {2,3,4,5,6,7};
+    vector<int> arr = {1,2,3,4,5,6};
     Node* head = convertarrtoLL(arr);
     displayLL(head);
-    cout<<endl<<lengthofLL(head);
-    if(checkifPresent(head, 99)){
-        cout<<endl<<"value present";
-    }
-    else{
-        cout<<endl<<"value absent";
-    }
+    cout<<endl;
+    findMiddle(head);
     return 0;
 }
